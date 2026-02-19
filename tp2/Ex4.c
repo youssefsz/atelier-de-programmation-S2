@@ -1,40 +1,42 @@
 #include<stdio.h>
 
-int saisir_a() {
-    int a;
+void saisir_a(int *p) {
     do {
         printf("\nsaisir a :");
-        scanf("%d", &a);
-    } while (a >= 0);
-    return a;
+        scanf("%d", p);
+    } while (*p >= 0);
 }
 
-float saisir_b() {
-    float b;
+void saisir_b(float *p) {
     do {
         printf("\nsaisir b :");
-        scanf("%f", &b);
-    } while (b <= 100);
-    return b;
+        scanf("%f", p);
+    } while (*p <= 100);
 }
 
-char saisir_c() {
-    char c;
+void saisir_c(char *p) {
     do {
         printf("\nsaisir c :");
-        scanf(" %c", &c);
-    } while (c < 'A' || c > 'Z');
-    return c;
+        scanf(" %c", p);
+    } while (*p < 'A' || *p > 'Z');
 }
 
 int main(){
-    int a, *pa, *pb;
+    int a;
     float b;
-    char c, v; 
+    char c;
+
+    int *pa;
+    float *pb;
+    char *pc;
+
+    pa = &a;
+    pb = &b;
+    pc = &c;
     
-    a = saisir_a();
-    b = saisir_b();
-    c = saisir_c();
+    saisir_a(pa);
+    saisir_b(pb);
+    saisir_c(pc);
 
     return 0;
 }
