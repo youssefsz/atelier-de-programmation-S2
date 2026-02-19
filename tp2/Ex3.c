@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int main(){
-    char a , b ,*pa , *pb ,v ,aux;
+    char a , b ,*pa , *pb ,v ,*paux;
     printf("saisir a :");
     scanf("%c",&a);
     scanf("%c",&v);
@@ -11,17 +11,13 @@ int main(){
 
     pa = &a;
     pb = &b;
-    aux = *pa;
+    char aux;
+    paux = &aux;
+    *paux = *pa;
     *pa = *pb;
-
-
-    *pb = aux; 
+    *pb = *paux; 
 
     printf(" a = %c et b = %c",*pa , *pb);
-
-    
-
-
 
     return 0;
 }
