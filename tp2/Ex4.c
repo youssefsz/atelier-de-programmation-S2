@@ -28,7 +28,7 @@ char saisir_c() {
 }
 
 int main(){
-    int a, *pa, *pb, aux;
+    int a, *pa, *pb;
     float b;
     char c, v; 
     
