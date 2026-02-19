@@ -1,36 +1,51 @@
 #include<stdio.h>
 
-int main(){
-    int n , U[100] , V[100] , T[100];
-    int *pu, *pv , *pt; 
-    pu= U;
-    pv = V;
-    pt = T;
+int saisir_taille() {
+    int n;
+    do {
+        printf("\nsaisir n :");
+        scanf("%d", &n);
+    } while (n <= 0 || n >= 100);
+    return n;
+}
 
-     do {
-    printf("\nsaisir n :");
-    scanf("%d",&n);
-    }while (n<=0 || n>=100);
+void remplir_tableau(int *T, int n, char nom) {
+    int *p;
+    for (p = T; p < T + n; p++) {
+        printf("\nsaisir un entier %c :", nom);
+        scanf("%d", p);
+    }
+}
 
-    for(pu = U ; pu<U+n ; pu++){
-        printf("\nsaisir un entier U :");
-        scanf("%d",&*pu);
+void calculer_somme(int *U, int *V, int *T, int n) {
+    int *pu = U, *pv = V, *pt = T;
+    while (pt < T + n) {
+        *pt = *pu + *pv;
+        pu++;
+        pv++;
+        pt++;
+    }
+}
 
-   }
+void afficher_tableau(int *T, int n) {
+    int *p;
+    for (p = T; p < T + n; p++) {
+        printf("\n %d", *p);
+    }
+}
+
+int main() {
+    int n, U[100], V[100], T[100];
+    
+    n = saisir_taille();
+    
+    remplir_tableau(U, n, 'U');
     printf("\n---------------\n");
-    for(pv = U ; pv<V+n ; pv++){
-        printf("\nsaisir un entier V :");
-        scanf("%d",&*pv);
-   }
-   for(int i = 0 ; i<n ; i++){
-        T[i] = U[i] + V[i];
-
-   }
-   for (int i = 0; i<n ; i++){
-        printf("\n %d", T[i] );
-
-   }
+    remplir_tableau(V, n, 'V');
+    
+    calculer_somme(U, V, T, n);
+    
+    afficher_tableau(T, n);
 
     return 0;
 }
-
