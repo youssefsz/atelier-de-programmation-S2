@@ -17,11 +17,8 @@ void remplir_tableau(float *T, int n, char nom) {
 
 void calculer_somme(float *U, float *V, float *T, int n) {
   float *pu = U, *pv = V, *pt = T;
-  while (pt < T + n) {
+  for(pt = T; pt < T + n; pt++, pu++, pv++) {
     *pt = *pu + *pv;
-    pu++;
-    pv++;
-    pt++;
   }
 }
 
