@@ -1,1 +1,11 @@
 .DS_Store
+
+# Ignore common C compilation outputs and debug files 
+*.o
+*.out
+*.exe
+*.dSYM/
+
+# Ignore compiled lesson/exercise files (e.g., Ex1, Ex5, ex1)
+[Ee]x*
+![Ee]x*.*
